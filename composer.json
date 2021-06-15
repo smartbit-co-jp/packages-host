@@ -9,7 +9,6 @@
         "ext-zip": "*",
         "barryvdh/laravel-snappy": "^0.4.4",
         "barryvdh/laravel-translation-manager": "^0.5.8",
-        "spatie/laravel-translatable": "^4.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -19,7 +18,8 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "smartbit/template-maker": "dev-master"
+        "smartbit/template-maker": "dev-master",
+        "spatie/laravel-translatable": "^4.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
