@@ -24,7 +24,6 @@
             background-color: #dff0d8 !important
         }
     </style>
-    @livewireStyles
 </head>
 <body class="bg-dark">
     <div id="app">
