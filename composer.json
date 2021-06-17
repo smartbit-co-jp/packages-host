@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "smartbit/template-maker": "dev-master",
-        "spatie/laravel-translatable": "^4.1"
+        "spatie/laravel-translatable": "^4.1",
+        "tinymce/tinymce": "^5.8"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
