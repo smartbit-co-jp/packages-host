@@ -6,25 +6,35 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "ext-zip": "*",
+        "barryvdh/laravel-snappy": "^0.4.8",
+        "barryvdh/laravel-translation-manager": "^0.5.8",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "h4cc/wkhtmltoimage-amd64": "^0.12.4",
+        "h4cc/wkhtmltopdf-amd64": "^0.12.4",
         "laravel/framework": "^8.40",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.3",
+        "smartbit/template-maker": "dev-main",
+        "spatie/laravel-translatable": "^4.1",
+        "tinymce/tinymce": "^5.8"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
+        "laravel/sail": "^1.8",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "SmartBit\\TemplateMaker\\": "packages/SmartBit/TemplateMaker/src/"
         }
     },
     "autoload-dev": {
@@ -55,5 +65,11 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {            
+            "type": "path",
+            "url": "./packages/SmartBit/template-maker/"
+        }
+    ]
 }
