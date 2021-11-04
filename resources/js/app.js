@@ -10,20 +10,27 @@ Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 
 import TinyMceEditor from '@tinymce/tinymce-vue'
-// import VueClipboards from 'vue-clipboards';
-// Vue.use(VueClipboards);
+import VueClipboards from 'vue-clipboards';
+Vue.use(VueClipboards);
 
 import VuePrismEditor from "vue-prism-editor";
 import "prismjs";
 import "prismjs/themes/prism.css";
 import "vue-prism-editor/dist/VuePrismEditor.css";
 
+import Vuex from 'vuex'
+Vue.use(Vuex)
+import storeData from "./store/index"
 
-Vue.component('basic-editor', TinyMceEditor)
-Vue.component('code-editor', VuePrismEditor)
-Vue.component('sb-form', require('./components/SbFormComponent.vue').default)
+const store = new Vuex.Store(
+    storeData
+)
 
+Vue.component( 'basic-editor', TinyMceEditor )
+Vue.component( 'code-editor', VuePrismEditor)
+Vue.component( 'sb-form', require('./components/SbFormComponent.vue').default )
 
 const app = new Vue({
-	el: '#app',
-});
+     store,
+     el: '#app',
+ });

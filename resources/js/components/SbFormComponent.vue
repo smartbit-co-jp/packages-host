@@ -8,7 +8,7 @@
             <slot name="modal" v-bind:form="form"></slot>
             <template v-slot:modal-footer>
                 <b-button :variant="headerBgVariant ? headerBgVariant :'success'" @click="send()">
-                    {{ sbLang.global.save }}
+                    {{ 'Save' }}
                 </b-button>
             </template>
         </b-modal>
@@ -18,7 +18,7 @@
                 :show="loading"
             >
                 <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-                {{ sbLang.global.loading }}...
+                {{ 'Loading' }}...
             </b-alert>
             <b-alert
                 :show="countDown"
@@ -155,6 +155,7 @@
                 this.loading = true
                 switch (this.method) {
                     case 'post':
+                        console.log('Will send a POST: ', this.form)
                         window.axios.post(
                             this.action, {'form_data':this.form,'section':this.section}
                         ).then((response)=>{
@@ -178,9 +179,11 @@
                         })
                         break;
                     case 'put':
+                        console.log('Will send a PUT: ',this.form)
                         window.axios.put(
                             this.action, {'form_data':this.form,'section':this.section}
                         ).then((response)=>{
+                            console.log('PUT: response', response);
                             this.modalOpen = false
                             this.alert(response.data.message)
                             this.form = response.data.model
@@ -188,11 +191,13 @@
                             this.form.updatePhone = (phone) => { return this.updatePhone(phone) }
                             this.onSave()
                         }).catch((error)=>{
+                            console.log('PUT: catch error', error);
                             if(error.response.data.errors){
                                 this.$store.commit('SET_ERRORS', error.response.data.errors)
                             }
                             this.alert(error.response.data.message,'danger',sender)
                         }).finally(()=>{
+                            console.log('PUT: finalized');
                             this.finalize()
                         })
                         break;
@@ -202,11 +207,13 @@
                 }
             },
             finalize() {
+                console.log('Finalized: ')
                 this.loading = false
                 this.changesCount = 0
                 this.form.changesCount = this.changesCount
             },
             onSave(){
+                console.log('onSave: ')
                 this.$emit('save', Object.assign({}, this.form))
                 this.$emit('input', this.form)
                 this.changesCount = 1
@@ -216,13 +223,13 @@
                 console.log(this.fields, 'fields')
             },
             alert(message, variant='success') {
-                this.sbAlertVariant = variant
-                this.sbAlertMessage = message
-                this.countDown = 5
+                // this.sbAlertVariant = variant
+                // this.sbAlertMessage = message
+                // this.countDown = 5
             },
             countDownChanged(countDown) {
                 this.countDown = countDown
             }
         }
     }
-</script>
+</script> 
