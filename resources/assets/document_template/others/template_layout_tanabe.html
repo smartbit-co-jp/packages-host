@@ -1,0 +1,396 @@
+<body style="font-size: 10pt; color: #333;">
+    <table style="margin-bottom: 5px; width:100%">
+        <tr>
+            <td width="25%"></td>
+            <td width="50%" style="font-size: 1.5em; text-align: center;">
+                労働契約書 (派遣ｽﾀｯﾌ用)
+            </td>
+            <td width="25%" style="font-size: 0.8em; text-align: right;">
+                @(contract_date)
+            </td>
+        </tr>
+    </table>
+
+    <table class="table-layout">
+        <tr>
+            <td width="25%" style="border:0; padding: 0;"></td>
+            <td width="50%" style="border:0; padding: 0;"></td>
+            <td width="25%" style="border:0; padding: 0;"></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">スタッフ氏名</td>
+                        <td width="35%">@(employee.name)</td>
+                        <td width="25%">通称名　(@(employee.tsuushoumei))</td>
+                        <td width="25%">生年月日 @(employee.birthday)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">雇用期間</td>
+                        <td width="35%">
+                            @(roudou.start) 〜　@(roudou.end)
+                            <div>
+                                ★ 契約更新 → 下記基準にて行う。
+                            </div>
+                        </td>
+                        <td width="50%">@(roudou.period)</td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">試用期間</td>
+                        <td width="15%">@(roudou.trial_period)</td>
+                        <td width="10%">研修期間</td>
+                        <td width="60%">@(roudou.training_period)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">就業場所</td>
+                        <td>@(workplace.name)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">業務内容</td>
+                        <td>@(work_contents)</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">就業時間 等</td>
+                        <td>
+                            @(working_hours)
+                            <div>
+                                所定就業時間 08:00 時間
+                            </div>
+                            <div>
+                                但し、「就労条件明示書」並びに派遣先カレンダー等を優先する。
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">休日・残業 等</td>
+                        <td>
+                            休日
+                            <br>
+                            残業
+                            <br>
+                            振替休日
+                        </td>
+                        <td>
+                            会社は週に会社は週に1日、若しくは4週に4日以上休日を与える。但し、就労条件明示書並びに派遣先のカレンダー等を優先する。
+                            <br>
+                            各就労条件明示書にて明示する。但し、配属される派遣先カレンダー等を優先する。尚、休日出勤する必要もあり得る。
+                            <br>
+                            派遣先カレンダー上の休日に出勤し、他の通常労働日に休む場合がある。
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">注意</td>
+                        <td>
+                            業務の都合により派遣先カレンダー、シフト表、休・出勤カレンダー等、時刻表に変更がある場合がある。
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: left;">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title" style="white-space: nowrap;">絞め / 支払日</td>
+                        <td width="7%" style="white-space: nowrap;">
+                            締め日
+                        </td>
+                        <td width="15%">
+                            @(closing_day)
+                        </td>
+                        <td width="7%">
+                            支払日
+                        </td>
+                        <td width="54%">
+                            @(payday)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+
+                        <td width="15%" class="row-title">
+                            賃 金
+                        </td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        給与体系等ここに時間給の記載がない場合「就労条件明示書」にて記載。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @(wage_table)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        「 *手当」は「就労条件明示書」記載の業務に従事従事期間中のみ支給される。
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">手当等</td>
+                        <td>
+                            @(daily_and_monthly_allowances)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">保険等</td>
+                        <td>
+                            @(employee_insurances)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">健康保険証</td>
+                        <td>
+                            厚生労働省の指針により会社は派遣先へ保険の加入を明示しなければならない。
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">契約更新条件等</td>
+                        <td>
+                            ★ 1- 派遣先との契約更新の有無 <br>
+                            2- 派遣先の受注・業務量 <br>
+                            3- 派遣労働者の成績・態度・能力 <br>
+                            4- 会社の経営状況 <br>
+                            5- 就業規則違反 <br>
+                        </td>
+                        <td>
+                            当契約は採用目的となった派遣先抵触日を超えない。<br>
+                            1- 派遣先事業所単位の抵触日(更新の可能性あり) →  @(client.conflict_date) 
+                            <br>
+                            2- 労働者個人単位の抵触日 → @(employee.conflict_date) @(employee.reason_for_not_having_conflict_date) <br>
+                            ☆労働契約は①及び②の抵触日を超えない。また、誤記により超えた場合、抵触日を優先する<br>
+                            ☆採用された目的の業務に必要なスキル・能力がない場合には中途解約する
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">退職</td>
+                        <td>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td width="15%" style="white-space:nowrap">
+                                        自己都合
+                                    </td>
+                                    <td>
+                                        30日前に通知すること
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="15%" style="white-space:nowrap">
+                                        会社都合
+                                    </td>
+                                    <td>30日前に通知する、若しくは満期をもって退職とする</td>
+                                </tr>
+
+                                <tr>
+                                    <td width="15%" style="white-space:nowrap">
+                                        期間満了
+                                    </td>
+                                    <td>
+                                        双方又は一方が更新を望まない場合
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="15%" style="white-space:nowrap">
+                                        解雇
+                                    </td>
+                                    <td>
+                                        解雇予告期間を設ける又は所轄労働基準監督署長の除外認定にて
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">その他</td>
+                        <td>
+                            1 会社並びに派遣先の指揮命令に従事し、他の労働者と協力しあい、会社・派遣先の作業の効率に励む。勤務での怠慢はしてはならない。<br>
+                            2 会社並びに派遣先の名誉、信用に傷つけてはならない。<br>
+                            3 会社が指示した届出等は遅滞なく行い、偽りはしないこと。<br>
+                            4 会社並びに派遣先で秩序を乱す行為をしてはならない。行った場合、解雇の対象となる。<br>
+                            5 安易に自己中心的に休まず、会社による変更要請には可能な限り応える。<br>
+                            6 常に健康に留意し、清潔にたもつこと。<br>
+                            7 有給休暇は原則2週間前に会社が指定する方法で申し出ること。<br>
+                            7 有給休暇は原則<br>
+                            8 就業時刻には、ただちに就業できる態勢であり、終業前に退勤の準備はしてはならない。<br>
+                            9 無断欠勤、遅刻、早退はせず、勤務中に職場を離れてはならない。私語はこれを慎むこと。<br>
+                            10 会社敷地内での宗教・政治・勧誘活動又は、ビラ・演説・集会・署名運動等はしてはならない。<br>
+                            11 セクハラ・パワハラはしないこと。 おこなった場合、会社は懲戒処分する。<br>
+                            12 会社に無断で二重就業してはならない。<br>
+                            13 会社、派遣先並びに関係者の情報を漏洩してはならない。<br>
+                            14 その他、就業規則(豊橋労働基準監督署)、労使協定、労働基準法で定めるとおり。<br>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">損害賠償</td>
+                        <td>
+                            労働者が故意又は重大な過失により会社、派遣先並びに関係者に損害を与えた場合、賠償請求する場合がある。
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">有効性</td>
+                        <td>
+                            本書面は2通作成し、会社・スタッフの双方が保有する。
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="15%" class="row-title">備 考</td>
+                        <td>
+                            本「労働契約書兼就労条件明示書(派遣スタッフ用)」の他言語訳文の解釈に疑義が生じた際、日本語版を優先する。
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table width="100%" style="margin-top: 10px;">
+        <tr>
+            <td>
+                <table class="table-layout-row">
+                    <tr>
+                        <td width="5%" rowspan="4" class="row-label" style="padding:5pt; white-space: nowrap;">
+                            （会社）
+                        </td>
+                        <td width="10%" nowrap>（所在地）</td>
+                        <td width="35%">
+                            @(haken.company.address.city)@(haken.company.address.town)@(haken.company.address.other)
+                        </td>
+                        <td width="5%" rowspan="4" class="row-label" style="white-space: nowrap;">
+                            （スタッフ）
+                        </td>
+                        <td>(住所)</td>
+                        <td>@(employee.city)@(employee.town)@(employee.other)</td>
+                    </tr>
+                    <tr>
+                        <td nowrap>（会社名）</td>
+                        <td>@(haken.company.name)</td>
+                        <td nowrap>(氏名)</td>
+                        <td>@(employee.name)</td>
+                    </tr>
+                    <tr>
+                        <td nowrap>&nbsp;</td>
+                        <td></td>
+                        <td nowrap></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td nowrap>（代表者名）</td>
+                        <td>@(haken.company.representative)　　印</td>
+                        <td nowrap>(署名)</td>
+                        <td>______________________________</td>
+                        <td>印</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>

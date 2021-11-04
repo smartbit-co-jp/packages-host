@@ -13,7 +13,9 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "h4cc/wkhtmltoimage-amd64": "^0.12.4",
+        "h4cc/wkhtmltoimage-i386": "0.12.x",
         "h4cc/wkhtmltopdf-amd64": "^0.12.4",
+        "h4cc/wkhtmltopdf-i386": "0.12.x",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
@@ -27,7 +29,8 @@
         "laravel/sail": "^1.8",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-web-tinker": "^1.7"
     },
     "autoload": {
         "psr-4": {

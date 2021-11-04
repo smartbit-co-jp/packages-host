@@ -35,7 +35,7 @@ return [
     
     'pdf' => [
         'enabled' => true,
-        'binary'  => env('WKHTML_PDF_BINARY', '/usr/local/bin/wkhtmltopdf'),
+        'binary'  => env('WKHTML_PDF_BINARY', base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64')),
         'timeout' => false,
         'options' => [],
         'env'     => [],
@@ -43,7 +43,8 @@ return [
     
     'image' => [
         'enabled' => true,
-        'binary'  => env('WKHTML_IMG_BINARY', '/usr/local/bin/wkhtmltoimage'),
+        'binary'  => env('WKHTML_IMG_BINARY', base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/img-amd64')),
+        
         'timeout' => false,
         'options' => [],
         'env'     => [],

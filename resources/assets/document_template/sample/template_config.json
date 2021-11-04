@@ -1,0 +1,122 @@
+{
+    "notice_group": {
+        "type": "group",
+        "label": "contract.notice",
+        "attributes": {
+            "document_date": {
+                "type": "attribute",
+                "key": "document_date",
+                "label": "global.contract_date",
+                "format": "date|Y年m月d日"
+            },
+            "note": {
+                "type": "attribute",
+                "key": "note",
+                "label": "notice.note"
+            }
+        }
+    },
+	"kobetsu_group": {
+		"type": "group",
+		"label": "kobetsu.kobetsu_contract",
+		"attributes": {
+            "insurances": {
+                "type": "collection",
+                "class": "App\\Employee\\Insurance",
+                "template": "components.template-maker.notice.employee-insurances",
+                "key": "employee.insurances",
+                "label": "global.insurance.title"
+            },
+			"kobetsu_number": {
+				"type": "attribute",
+				"key": "kobetsu.number",
+				"label": "kobetsu.number"
+			},
+			"contract_date": {
+				"type": "attribute",
+				"format": "date|Y年m月d日",
+				"key": "kobetsu.contract_date",
+				"label": "kobetsu.contract_date"
+			},
+			"start": {
+				"type": "attribute",
+				"key": "haken_kikan.start",
+				"label": "kobetsu.contract_start",
+				"format": "date|Y年m月d日"
+			},
+			"end": {
+				"type": "attribute",
+				"key": "haken_kikan.end",
+				"label": "kobetsu.contract_end",
+				"format": "date|Y年m月d日"
+			},
+			"contract_period": {
+				"type": "attribute",
+				"key": "contract_period",
+				"label": "kobetsu.contract_period",
+				"template": "components.template-maker.notice.contract-period"
+			},
+			"limit_to_workers_under_agreement": {
+				"type": "attribute",
+				"key": "limit_to_workers_under_agreement",
+				"label": "kobetsu.limit_to_workers_under_agreement.label",
+                "template": "components.template-maker.notice.limit-workers-under-agreement"
+            }
+		}
+	},
+    "client_group": {
+        "type": "group",
+        "label": "client.label",
+        "attributes": {
+            "client_name": {
+                "type": "attribute",
+                "key": "client.name",
+                "label": "client.name"
+            }
+        }
+    },
+    "employee_group": {
+        "type": "group",
+        "label": "employee.label",
+        "attributes": {
+            "person": {
+                "type": "model",
+                "class": "App\\Models\\User",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "employee.name",
+                        "label": "user.name"
+                    },
+                    "tsuushoumei": {
+                        "type": "attribute",
+                        "key": "employee.tsuushoumei",
+                        "label": "user.tsuushoumei.label"
+                    },
+                    "time_card_name": {
+                        "type": "attribute",
+                        "key": "employee.time_card_name",
+                        "label": "user.time_card_name"
+                    },
+                    "birthday": {
+                        "type": "attribute",
+                        "key": "employee.birthday",
+                        "label": "user.birthday"
+                    },
+                    "gender": {
+                        "type": "attribute",
+                        "key": "employee.gender",
+                        "format": "gender",
+                        "label": "user.gender"
+                    }
+                }
+            },
+            "person_age": {
+                "type": "attribute",
+                "key": "employee.age",
+                "label": "person.age",
+				"template": "components.template-maker.notice.person-age"
+            }
+        }
+    }
+}

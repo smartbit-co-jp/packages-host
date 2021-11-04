@@ -1,0 +1,24 @@
+{
+	"company_group":{
+		"type":"group",
+		"label":"Company's Client",
+		"attributes":{
+			"name": {"type":"attribute","key":"client.name","label":"お名前"},
+			"address": {"type":"attribute","key":"client.address","label":"住所"},
+			"phone": {"type":"attribute","key":"client.phone","label":"電話番号", "format":"phone"},
+			"fax": {"type":"attribute","key":"client.fax","label":"FAX", "format":"fax"},
+
+			"client": {
+				"type":"model",
+				"class":"App\\Models\\Client",
+				"label": "お客様情報",
+				"attributes":{
+					"name": {"type":"attribute","key":"client.name","label":"お名前"},
+					"address": {"type":"attribute","key":"client.address","label":"住所"},
+					"phone": {"type":"attribute","key":"client.phone","label":"電話番号", "format":"phone"},
+					"fax": {"type":"attribute","key":"client.fax","label":"FAX", "format":"fax"}
+				}
+			}
+		}
+	}
+}
