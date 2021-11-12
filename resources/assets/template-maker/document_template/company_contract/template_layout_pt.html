@@ -1,0 +1,486 @@
+<body style="font-size: 9.5pt; color: #333; margin-top: -20px;">
+	<table style="margin-bottom: 10px; width:100%">
+		<tr>
+			<td width="30%"></td>
+			<td width="40%" style="font-size: 1.6em; text-align: center;">CONDIÇÕES DE TRABALHO</td>.
+			<td width="30%" style="font-size: 0.8em;">
+				<table style="text-align: center; width: 100%;">
+					<tr>
+						<td>No. Contrato @(kobetsu.number)</td>
+						<td>@(working_condition.contract_date)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+
+	<table class="table-layout-row" style="margin-bottom: 20px;">
+		<tr>
+			<td width="50%" rowspan="2" style="font-size: 1.5em;" class="align-top">
+				<!-- @(working_condition.person.name) -->
+				@(employee.name)　殿
+			</td>
+			<td width="20%">
+				<small>
+					(Nome da Empresa)
+				</small>
+			</td>
+			<td width="30%">
+
+				@(haken.name:romaji)
+			</td>
+		</tr>
+		<tr>
+			<td width="20%">
+				<small>
+					(Autorização)
+				</small>
+			</td>
+			<td width="30%">
+				@(haken.permission_number)
+			</td>
+		</tr>
+	</table>
+	<div>
+		&nbsp; Locaremos a mão-de-obra nas seguintes condições:
+	</div>
+	<table class="table-layout">
+		<tr>
+			<td width="25%" style="border:0; padding: 0;"></td>
+			<td width="50%" style="border:0; padding: 0;"></td>
+			<td width="25%" style="border:0; padding: 0;"></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">Empresa locatária</td>
+					</tr>
+					<tr>
+						<td width="18%" class="row-label">(Nome・Endereço)</td>
+						<td width="40%">
+							@(client.branch.name:romaji)　
+							@(client.branch.city:romaji)@(client.branch.town:romaji)@(client.branch.other:romaji)
+						</td>
+						<td width="6%"></td>
+						<td width="6%"></td>
+						<td width="6%" class="row-label">(TEL)</td>
+						<td width="22%">@(client.branch.phone)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row align-top">
+					<tr>
+						<td class="row-title">Local de Trabalho</td>
+					</tr>
+					<tr>
+						<td width="18%" class="row-label">(Nome・Endereço)</td>
+						<td width="40%">
+							@(workplace.name:romaji)　
+							@(workplace.city:romaji)@(workplace.town:romaji)@(workplace.other:romaji)
+						</td>
+						<td width="6%" class="row-label">(Setor)</td>
+						<td width="6%">@(workplace.department)</td>
+						<td width="6%" class="row-label">(TEL)</td>
+						<td width="22%">@(workplace.phone)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<td width="70%">
+						<table>
+							<tr>
+								<td class="row-title">
+									Conteúdo do Trabalho
+								</td>
+							</tr>
+							<tr>
+								<td>
+									@(work_contents)
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="28%">
+						<table style="width: 100%;">
+							<tr>
+								<td class="row-title">
+									Unidade Organizacional
+								</td>
+							</tr>
+							<tr>
+								<td>
+									@(unit.name:romaji)
+								</td>
+							</tr>
+						</table>
+					</td>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">Grau de responsabilidade associado ao trabalho</td>
+					</tr>
+					<tr>
+						<td>@(worker_responsibility_degree)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title" width="20%">Responsável pelo Comando </td>
+						<td>@(unit.commanders)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">Primeiro dia em que infringe a regra sobre restrição de período para cada
+							empresa locatária (poderá ser prorrogado)</td>
+					</tr>
+ 				    <tr>
+						<td>@(client.conflict_date)</td>
+					</tr>
+					<tr>
+						<td class="row-title">Primeiro dia em que infringe a regra sobre restrição de período para cada
+							organização (pessoa) (não poderá ser prorrogado)</td>
+					</tr>
+ 				    <tr>
+  				        <td>@(employee.conflict_date) @(employee.reason_for_not_having_conflict_date)</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Caso não tenha feito adequadamente os procedimentos de prorrogação do período em que é
+							permitida a locação de mão-de-obra para
+							cada empresa locatária, ou tenha recebido a prestação de serviços de locação de mão-de-obra
+							a partir do primeiro dia em que
+							infringe a regra sobre restrição de período para cada organização (pessoa), a empresa
+							locatária será objeto do sistema de consideração
+							como pedido de contrato de trabalho.
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="1" width="15%">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">
+							Período de alocação
+						</td>
+					</tr>
+					<tr>
+						<td>@(working_condition.start)〜@(working_condition.end)</td>
+					</tr>
+				</table>
+			</td>
+			<td colspan="2" width="85%">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">
+							Dias de Trabalho
+						</td>
+					</tr>
+					<tr>
+						<td>
+							De acordo com o calendário da fábrica
+						</td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td width="15%" class="row-title">
+							Horário de Trabalho e
+							Horário de Descanso(kyukei)
+						</td>
+						<!-- </tr>
+							<tr> -->
+						<td>@(working_hours)
+							Periodo de Trabalho Normal 8:00 Horas
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title" style="font-size: 0.8em;">
+							Trabalho fora dos dias de trabalho e
+							trabalho fora do horário de trabalho
+						</td>
+					</tr>
+					<tr>
+						<td>@(overtime_agreement)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td colspan="8" class="row-title">Responsável exclusivo pelas atividades fabris na empresa
+							locatária
+						</td>
+					</tr>
+					<tr>
+						<td width="6%" class="row-label">(Setor)</td>
+						<td width="18%">@(client.supervisor.department:romaji)</td>
+						<td width="6%" class="row-label">(Cargo)</td>
+						<td width="18%">@(client.supervisor.position:romaji)</td>
+						<td width="6%" class="row-label">(Nome)</td>
+						<td width="18%">@(client.supervisor.name:romaji)</td>
+						<td width="6%" class="row-label">(TEL)</td>
+						<td width="18%">@(client.supervisor.phone)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td colspan="8" class="row-title">
+							Responsável exclusivo pelas atividades fabris na empresa locadora
+						</td>
+					</tr>
+					<tr>
+						<td width="6%" class="row-label">(Setor)</td>
+						<td width="18%">@(haken.supervisor.department:romaji)</td>
+						<td width="6%" class="row-label">(Cargo)</td>
+						<td width="18%">@(haken.supervisor.position:romaji)</td>
+						<td width="6%" class="row-label">(Nome)</td>
+						<td width="18%">@(haken.supervisor.name:romaji)</td>
+						<td width="6%" class="row-label">(TEL)</td>
+						<td width="18%">@(haken.supervisor.phone)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">
+							Seguranca e higiene
+						</td>
+					</tr>
+					<tr>
+						<td style="font-size: 0.8em;">@(safety_sanitation)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">
+							Fornecimento de facilidades
+							para melhoria do bem-estar
+						</td>
+					</tr>
+					<tr>
+						<td>@(welfare_facilities)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">Medidas de prevenção de conflitos no caso de a empresa locatária contratar
+							o trabalhador alocado </td>
+					</tr>
+					<tr>
+						<td>@(dispute_prevention_measures)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title">Medidas necessárias para promover a estabilidade de emprego da mão-de-obra
+							locada </td>
+					</tr>
+					<tr>
+						<td style="font-size: 0.8em;">
+							No caso de ocorrer a rescisão do contrato de locação de mão-de-obra por motivo que não possa
+							ser imputado ao trabalhador locado antes do
+							término do período de contrato de locação de mão-de-obra, a empresa locadora de mão-de-obra
+							deverá procurar garantir a nova oportunidade de
+							trabalho do trabalhador locado relativo ao contrato de locação por meio do recebimento de
+							oferta de emprego nas empresas coligadas da empresa
+							locatária, feita por parte da referida empresa locatária, em cooperação com esta, ou
+							conseguindo outra empresa locatária, além de outros meios.
+							Na impossibidade de garantir nova oportunidade de trabalho na ocasião da rescisão do
+							referido contrato de locação de mão-de-obra, deverá primeiramente tentar manter o emprego
+							do trabalhador locado em questão suspendendo as atividades, e ao mesmo tempo cumprir a
+							responsabilidade baseada na Lei de Normas de Trabalho relativa ao pagamento de
+							remuneração do período de suspensão das atividades.
+							E mesmo no caso de pretender demitir o referido trabalhador locado por impossibilidade de
+							fazê-lo, por motivo de força maior, deverá obedecer ao disposto na Lei
+							de Normas de Trabalho, além de dar o aviso prévio de pelo menos 30 dias, ou pagar o aviso
+							prévio nos termos do parágrafo 1o do Artigo 20 da Lei de Normas de Trabalho;
+							no caso de mandar suspender as atividades, deverá pagar a remuneração desse período, enfim,
+							cumprir as responsabilidades de empregadores previstas na Lei de Normas de Trabalho.
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td colspan="9" class="row-title">Onde dirigir as reclamações/formas de solução/sistema de
+							cooperação</td>
+					</tr>
+					<tr>
+						<td colspan="9" class="row-label">(1) Quem recebe as reclamações</td>
+					</tr>
+					<tr>
+						<td class="row-label">Empresa locatária</td>
+						<td class="row-label">(Setor)</td>
+						<td>@(client.complaints_handler.department:romaji)</td>
+						<td class="row-label">(Cargo)</td>
+						<td>@(client.complaints_handler.position:romaji)</td>
+						<td class="row-label">(Nome)</td>
+						<td>@(client.complaints_handler.name:romaji)</td>
+						<td class="row-label">(TEL)</td>
+						<td>@(client.complaints_handler.phone)</td>
+					</tr>
+					<tr>
+						<td class="row-label">EmprTELesa Locadora</td>
+						<td class="row-label">(Setor)</td>
+						<td>@(haken.complaints_handler.department:romaji)</td>
+						<td class="row-label">(Cargo)</td>
+						<td>@(haken.complaints_handler.position:romaji)</td>
+						<td class="row-label">(Nome)</td>
+						<td>@(haken.complaints_handler.name:romaji)</td>
+						<td class="row-label">(TEL)</td>
+						<td>@(haken.complaints_handler.phone)</td>
+					</tr>
+					<tr>
+						<td colspan="9" class="row-label">(2) Forma de solução de reclamações, sistema de cooperação
+							etc.</td>
+					</tr>
+					<tr>
+						<td colspan="9" style="font-size: 0.8em;">①Quando a pessoa da empresa locatária referida no (1)
+							receber a reclamação, deverá comunicar imediatamente ao responsável da empresa locatária, e
+							a referida pessoa responsável da empresa locatária deverá tomar a frente para, de boa fé e
+							sem demora, solucionar a questão de forma adequada e rápida, informando sem falta ao
+							trabalhador locado o resultado.</td>
+					</tr>
+					<tr>
+						<td colspan="9" style="font-size: 0.8em;">②A empresa locatária e a empresa locadora deverão
+							informar uma à outra sem demora as reclamações, exceto aquelas fáceis de serem resolvidas
+							por elas mesmas e que foram resolvidas imediatamente, buscando sua solução mantendo contato
+							estreito e fazendo ajustes finos. </td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td><span class="row-title">Taxa de locação</span> @(daily_haken_fee) </td>
+						<!-- <td></td> -->
+					</tr>
+					<tr>
+						<td>
+							<span class="row-title">
+								Salarios
+							</span>
+							@(wage_table)
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td colspan="3" class="row-title" style="font-size: 0.8em;">Motivos no caso de não terem sido
+							apresentados aos órgãos do poder público os documentos de obtenção de seguros de trabalho e
+							seguros sociais</td>
+					</tr>
+					<tr>
+						<td>
+							<table class="table-layout-row">
+								<tr>
+									@(employee_insurances)
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<table class="table-layout-row">
+					<tr>
+						<td class="row-title" style="font-size: 0.8em;">Dados relativos à locação prevista e dados
+							relativos à locação de mão-de-obra para serviços que não sofrem restrição de período em que
+							é permitida a locação</td>
+					</tr>
+					<tr>
+						<td>&nbsp;@(introduction_and_no_period_restriction_term)</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		</tr>
+	</table>
+	<div style="margin-top: 5px;">
+		Certifico que foram esclarecidos os teores e as condições acima.
+	</div>
+	<table style="margin-top: 10px; width:50%; text-align: left;">
+		<tr>
+			<th>
+
+			</th>
+			<th style="font-weight: normal;">
+				@(employee.name)
+			</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td width="10%">Assinatura: </td>
+			<td width="80%" style="border-bottom: 1px solid black;">
+
+			</td>
+			<td width="10%">印</td>
+		</tr>
+	</table>
+</body>

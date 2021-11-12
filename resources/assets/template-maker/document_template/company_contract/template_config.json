@@ -1,0 +1,13 @@
+{
+	"company_group":{
+		"type":"group",
+		"label":"Company's Client",
+		"attributes":{
+			"name": {
+				"type":"attribute",
+				"key":"company.name",
+				"label":"お名前"
+			}
+		}
+	}
+}

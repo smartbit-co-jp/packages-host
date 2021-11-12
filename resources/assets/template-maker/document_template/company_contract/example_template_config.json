@@ -1,0 +1,524 @@
+{
+    "working_condition_group": {
+        "type": "group",
+        "label": "working_condition.label",
+        "attributes": {
+            "client_conflict_date": {
+				"type": "attribute",
+				"key": "client.conflict_date",
+                "label": "client.branch.conflict_date"
+			},
+            "daily_and_monthly_allowances": {
+                "type": "collection",
+                "template": "components.template-maker.allowances",
+                "key": "daily_and_monthly_allowances",
+                "label": "global.daily_and_monthly_allowances"
+            },
+            "reason_for_not_having_conflict_date": {
+                "type": "attribute",
+                "key": "employee.reason_for_not_having_conflict_date",
+                "label": "employee.conflict_date"
+            },
+            "number": {
+                "type": "attribute",
+                "key": "kobetsu.number",
+                "label": "working_condition.number"
+            },
+            "wage_table": {
+                "type": "attribute",
+                "key": "wage_table",
+                "label": "global.allowances"
+            },
+            "contract_date": {
+                "type": "attribute",
+                "key": "working_condition.contract_date",
+                "label": "working_condition.contract_date",
+				"format": "date|Y年m月d日"
+            },
+            "start": {
+                "type": "attribute",
+                "key": "working_condition.start",
+                "label": "working_condition.contract_start"
+            },
+            "end": {
+                "type": "attribute",
+                "key": "working_condition.end",
+                "label": "working_condition.contract_end"
+            },
+            "work_responsibility_degree_formated": {
+                "type": "attribute",
+                "key": "worker_responsibility_degree",
+                "label": "kobetsu.work_responsibility_degree.label"
+			},
+			"introduction_and_no_period_restriction_term": {
+				"type": "attribute",
+				"key": "introduction_and_no_period_restriction_term",
+				"label": "kobetsu.introduction_and_no_period_restriction_term"
+			},
+            "work_place": {
+                "type": "model",
+                "class": "App\\Client\\Branch\\WorkPlace",
+                "label": null,
+                "attributes": {
+                    "welfare_facility": {
+                        "type": "attribute",
+                        "key": "welfare_facilities",
+                        "label": "client.branch.work_place.welfare_facility"
+                    }
+                }
+            },
+            "haken_settings": {
+                "type": "model",
+                "class": "App\\Haken\\Settings",
+                "key": "haken.settings",
+                "attributes": {
+                    "overtime_agreement": {
+                        "type": "attribute",
+                        "key": "overtime_agreement",
+                        "label": "haken.fixed_sentences.overtime_agreement"
+                    },
+                    "dispute_prevention_measures": {
+                        "type": "attribute",
+                        "key": "dispute_prevention_measures",
+                        "label": "haken.fixed_sentences.dispute_prevention_measures"
+                    }
+                }
+			},
+			"employee_insurances": {
+				"type": "collection",
+				"class": "App\\Employee\\Insurance",
+				"template": "components.template-maker.employee-insurances",
+				"key": "employee_insurances",
+				"label": "global.insurance.title"
+			},
+            "daily_haken_fee": {
+                "type": "attribute",
+                "key": "daily_haken_fee",
+                "label": "working_condition.daily_haken_fee"
+            },
+            "wage": {
+                "type": "attribute",
+                "key": "wage",
+                "label": "client.branch.wage"
+            },
+            "payday": {
+                "type": "attribute",
+                "key": "payday",
+                "label": "client.branch.payday"
+            },
+            "closing_day": {
+                "type": "attribute",
+                "key": "closing_day",
+                "label": "client.branch.closing_day"
+            }
+        }
+    },
+    "employee_group": {
+        "type": "group",
+        "label": "employee.label",
+        "attributes": {
+            "person": {
+                "type": "model",
+                "class": "App\\Person",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "employee.name",
+                        "label": "person.name"
+                    },
+                    "tsuushoumei": {
+                        "type": "attribute",
+                        "key": "employee.tsuushoumei",
+                        "label": "person.tsuushoumei.label"
+                    },
+                    "birthday": {
+                        "type": "attribute",
+                        "key": "employee.birthday",
+                        "label": "person.birthday"
+                    },
+                    "gender": {
+                        "type": "attribute",
+                        "key": "employee.gender",
+                        "label": "person.gender"
+                    }
+                }
+			},
+			"employee": {
+				"type": "model",
+				"class": "App\\Employee",
+				"attributes": {
+					"conflict_date_formatted": {
+						"type": "attribute",
+						"key": "employee.conflict_date",
+                        "label": "employee.conflict_date",
+                        "format": "date|Y年m月d日"
+					}
+				}
+			}
+        }
+	},
+    "client_group": {
+        "type": "group",
+        "label": "client.label",
+        "attributes": {
+           
+            "branch_supervisor": {
+                "type": "model",
+                "class": "App\\Client\\Branch\\Person",
+                "label": "client.branch.supervisor.title",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "client.supervisor.name",
+                        "label": "client.branch.supervisor.name"
+                    },
+                    "position": {
+                        "type": "attribute",
+                        "key": "client.supervisor.position",
+                        "label": "client.branch.supervisor.position"
+                    },
+                    "phone": {
+                        "type": "attribute",
+                        "key": "client.supervisor.phone",
+                        "label": "global.phone",
+                        "format": "phone" 
+                    },
+                    "department": {
+                        "type": "model",
+                        "class": "App\\Client\\Branch\\Department",
+                        "attributes":{
+                            "name":{
+                                "type":"attribute",
+                                "key":"client.supervisor.department",
+                                "label":"client.branch.department.label"
+                            }
+                        }
+                    }
+                }
+            },
+            "branch_complaint_handler": {
+                "type": "model",
+                "class": "App\\Client\\Branch\\Person",
+                "label": "client.branch.complaints_handling.title",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "client.complaints_handler.name",
+                        "label": "client.branch.complaints_handling.name"
+                    },
+                    "position": {
+                        "type": "attribute",
+                        "key": "client.complaints_handler.position",
+                        "label": "client.branch.complaints_handling.position"
+                    },
+                    "phone": {
+                        "type": "attribute",
+                        "key": "client.complaints_handler.phone",
+                        "label": "global.phone",
+                        "format": "phone" 
+                    }
+                }
+            },
+            "branch_complaint_handler_department": {
+                "type": "model",
+                "class": "App\\Client\\Branch\\Department",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "client.complaints_handler.department",
+                        "label": "client.branch.department.label"
+                    }
+                }
+            }
+        }
+    },
+    "branch": {
+        "type": "model",
+        "class": "App\\Client\\Branch",
+        "key": "client.branch",
+        "label": "client.branch.title",
+        "attributes": {
+            "name": {
+                "type": "attribute",
+                "key": "client.branch.name",
+                "label": "client.branch.name"
+			},
+            "phone_with_extension": {
+                "type": "attribute",
+                "key": "client.branch.phone",
+                "label": "global.phone"
+            },
+            "city": {
+                "type": "attribute",
+                "key": "client.branch.city",
+                "label": "global.address.city"
+            },
+            "town": {
+                "type": "attribute",
+                "key": "client.branch.town",
+                "label": "global.address.town"
+            },
+            "other": {
+                "type": "attribute",
+                "key": "client.branch.other",
+                "label": "global.address.other"
+            }
+        }
+    },
+    "haken_group": {
+        "type": "group",
+        "label": "haken.label",
+        "attributes": {
+            "company": {
+                "type": "model",
+                "class": "App\\Haken\\HakenInfo",
+                "label": "haken.company.details",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "haken.company.name",
+                        "label": "haken.company.name"
+                    },
+                    "representative": {
+                        "type": "attribute",
+                        "key": "haken.representative",
+                        "label": "haken.company.representative"
+                    }
+                }
+            },
+            "haken_info": {
+                "type": "model",
+                "class": "App\\Haken\\HakenInfo",
+                "label": "haken.label",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "haken.name",
+                        "label": "haken.name"
+                    },
+                    "permission_number": {
+                        "type": "attribute",
+                        "key": "haken.permission_number",
+                        "label": "haken.permission_number"
+                    },
+                    "phone_with_extension": {
+                        "type": "attribute",
+                        "key": "haken.phone",
+                        "label": "global.phone"
+                    },
+                    "fax": {
+                        "type": "attribute",
+                        "key": "haken.fax",
+                        "label": "global.fax"
+                    },
+                    "zip": {
+                        "type": "attribute",
+                        "key": "haken.address.zip",
+                        "label": "global.address.zip"
+                    },
+                    "province": {
+                        "type": "attribute",
+                        "key": "haken.address.province",
+                        "label": "global.address.province"
+                    },
+                    "city": {
+                        "type": "attribute",
+                        "key": "haken.address.city",
+                        "label": "global.address.city"
+                    },
+                    "town": {
+                        "type": "attribute",
+                        "key": "haken.address.town",
+                        "label": "global.address.town"
+                    },
+                    "other": {
+                        "type": "attribute",
+                        "key": "haken.address.other",
+                        "label": "global.address.other"
+                    }
+                }
+            },
+            "haken_supervisor": {
+                "type": "model",
+                "class": "App\\Haken\\Person",
+                "label": "haken.supervisor.label",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "haken.supervisor.name",
+                        "label": "haken.supervisor.name"
+                    },
+                    "position": {
+                        "type": "attribute",
+                        "key": "haken.supervisor.position",
+                        "label": "haken.supervisor.position"
+                    },
+                    "phone": {
+                        "type": "attribute",
+                        "key": "haken.supervisor.phone",
+                        "label": "global.phone",
+                        "format": "phone" 
+                    },
+                    "department": {
+                        "type": "model",
+                        "class": "App\\Haken\\Department",
+                        "attributes": {
+                            "name": {
+                                "type": "attribute",
+                                "key": "haken.supervisor.department",
+                                "label": "haken.supervisor.department"
+                            }
+                        }
+                    }
+                }
+            },
+            "haken_complaint_handler": {
+                "type": "model",
+                "class": "App\\Haken\\Person",
+                "label": "haken.complaints_handling.label",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "haken.complaints_handler.name",
+                        "label": "haken.complaints_handling.name"
+                    },
+                    "position": {
+                        "type": "attribute",
+                        "key": "haken.complaints_handler.position",
+                        "label": "haken.complaints_handling.position"
+                    },
+                    "phone": {
+                        "type": "attribute",
+                        "key": "haken.complaints_handler.phone",
+                        "label": "global.phone",
+                        "format": "phone" 
+                    }
+                }
+            },
+            "haken_complaint_handler_department": {
+                "type": "model",
+                "class": "App\\Haken\\Department",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "haken.complaints_handler.department",
+                        "label": "haken.complaints_handling.department"
+                    }
+                }
+            }
+        }
+    },
+    "work_place": {
+        "type": "model",
+        "class": "App\\Client\\Branch\\WorkPlace",
+        "key": "client.branch.workplace",
+        "label": "client.branch.work_place.label",
+        "attributes": {
+            "name": {
+                "type": "attribute",
+                "key": "workplace.name",
+                "label": "client.branch.work_place.name"
+            },
+            "department": {
+                "type": "attribute",
+                "key": "workplace.department",
+                "label": "client.branch.department.label"
+            },
+            "phone": {
+                "type": "attribute",
+                "key": "workplace.phone",
+                "label": "global.phone"
+            },
+            "city": {
+                "type": "attribute",
+                "key": "workplace.city",
+                "label": "global.address.city"
+            },
+            "town": {
+                "type": "attribute",
+                "key": "workplace.town",
+                "label": "global.address.town"
+            },
+            "other": {
+                "type": "attribute",
+                "key": "workplace.other",
+                "label": "global.address.other"
+            }
+        }
+    },
+    "working_hour": {
+        "type": "group",
+        "class": "App\\Client\\Branch\\WorkPlace",
+        "label": "client.branch.working_hour.label",
+        "attributes": {
+            "name": {
+                "type": "attribute",
+                "key": "unit.name",
+                "label": "Display collection labels"
+            },
+            "working_hours": {
+                "type": "collection",
+                "class": "App\\Client\\Branch\\WorkingHour",
+                "template": "components.template-maker.working-hour",
+                "key": "working_hours",
+                "label": "client.branch.working_hour.label"
+            }
+        }
+    },
+    "unit_group": {
+        "type": "group",
+        "label": "client.branch.unit.label",
+        "attributes": {
+            "unit": {
+                "type": "model",
+                "class": "App\\Client\\Branch\\Unit",
+                "attributes": {
+                    "name": {
+                        "type": "attribute",
+                        "key": "unit.name",
+                        "label": "client.branch.unit.name"
+                    },
+                    "highest_position": {
+                        "type": "attribute",
+                        "key": "unit.highest_position",
+                        "label": "client.branch.unit.highest_position"
+                    },
+                    "safety_sanitize": {
+                        "type": "attribute",
+                        "key": "safety_sanitation",
+                        "label": "client.branch.unit.safety_and_sanitation"
+					}
+                }
+			},
+			"unit_commanders": {
+                "type": "collection",
+                "class": "App\\Client\\Branch\\Unit\\Commander",
+				"template": "components.template-maker.unit-commander",
+				"key": "unit.commanders",
+				"label": "client.branch.unit.commander.label"
+			},
+            "work_content": {
+                "type":"model",
+                "class":"App\\Client\\Branch\\Unit\\WorkContent",
+                "attributes":{
+                    "name":{
+                        "type":"attribute",
+                        "key":"work_contents",
+                        "label":"client.branch.unit.work_content.label"
+                    }
+                }
+            },
+            "branch": {
+                "type": "model",
+                "class": "App\\Client\\Branch",
+                "attributes": {
+                    "haken_fee": {
+                        "type": "attribute",
+                        "key": "haken_fee",
+                        "label": "client.branch.haken_fee"
+                    }
+                }
+            }
+        }
+    }
+}

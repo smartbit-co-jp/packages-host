@@ -1,0 +1,78 @@
+Json File Layout
+
+- GroupName {
+	type -> Group with its ATTRIBUTES relationships
+	label -> to be displayed	
+	attributes -> List of attributes that will be shown within this group
+		{
+			type ->
+		}
+}
+
+
+Types = [
+	'group', -> Creates a different container to show the attributes list related to the group
+		** Usually on the first level deep inside the config file.
+		label: Required because it will become the card's title label which usually loads collapsible
+		key: Not necessary as this the main objetice of this type "group" is to create a separation between other lists, and it might not necessarily be related to a model itself
+
+
+	'model' -> Used to assimilate the list attributes to a model's property, to later dynamically render the values from the database on the rendered document
+		** Usually a few levels deep inside the config file, but CAN also be on the first level and act as a group on the list of variables
+		label: Optional, when the user wants to create a clear separation between different models attribute inside the same GROUP list
+		key: 
+
+	'attribute' -> Possesses information regarding where to retrieve the data from the model 
+		label: Required when listing the model's attribute label to be used on the template
+
+
+
+
+
+
+	/// Example of Attribute type
+	It will contain information regarding the model's property/attribute that will be listed/used for the template
+
+	attribute -> Differentiates from the type to retrieve the needed information to render and proccess with dynamic information
+
+	label -> The label that will be used when displaying the list of attributes to use on the template
+
+	key -> used on a dot notation to access the model's property
+
+		ex.: client.name, client.addresses.zipcode, company.name, company.registry_code
+		ex. on the template: @client.name, @client.address.zipcode, @company.name, @company.registry_code
+	format -> Can be used to format and display information if needed, like on phone numbers, formatation of numbers or other types of information
+	Ex.:
+	"name":{
+		"type":"attribute",
+		"key":"client.name",
+		"label":"Client's Name"
+	}
+
+
+	// Example of Model type
+	It contains information regarding the MODEL itself, containing possibly multiples attributes related to the model
+   
+	Ex.:
+	"department":{
+		"type":"model",
+		"class":"App\\Models\\Company\\Department",
+		"attributes":{
+			"name":{"type":"attribute","key":"company.department.name","label":"Departname's Name/Title"}
+			"director":{"type":"attribute","key":"company.department.director","label":"Departname's Director"},
+			Consult Attribute type above for more examples
+		}
+	}
+
+	********** Quando que a key e label nao eh necessario [Type:model]
+	********** Deep child?? 
+
+
+
+
+
+
+
+
+
+]
